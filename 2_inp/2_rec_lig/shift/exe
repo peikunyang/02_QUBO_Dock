@@ -1,0 +1,2 @@
+python shift.py ../1nc3_lig_exp.pdb 1nc3_lig_shi.pdb 55.743 39.264 20.669
+

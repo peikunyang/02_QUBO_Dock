@@ -1,0 +1,11 @@
+qubodock-buildj ../../2_inp/2_rec_lig/1nc3_pro.pdb \
+  --center 55.743 39.264 20.669 \
+  --radius 7.0 \
+  --spacing 0.375 \
+  --exclusion 1.5 \
+  --dmin 0.7 --dmax 1.3 \
+  --penalty 20.0 --reward -2.0 \
+  --out j.txt \
+  --points-out grid_points.txt
+
+

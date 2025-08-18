@@ -1,0 +1,7 @@
+qubodock-rmsd ../3_ligand_pose/placements.txt \
+  ../../2_inp/2_rec_lig/shift/1nc3_lig_shi.pdb \
+  ../../2_inp/2_rec_lig/1nc3_lig_exp.pdb \
+  --device cuda \
+  --match-by name \
+  --out placements_rmsd.txt
+

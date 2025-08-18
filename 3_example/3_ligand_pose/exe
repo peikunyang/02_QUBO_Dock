@@ -1,0 +1,9 @@
+qubodock-align ../../2_inp/2_rec_lig/shift/1nc3_lig_shi.pdb \
+  ../2_qubo_solver/active_points.txt \
+  ../../2_inp/2_rec_lig/1nc3_pro.pdb \
+  --device cuda \
+  --pair-tol 0.2 \
+  --tri-tol 0.2 \
+  --clash 1.0 \
+  --placements-out ../3_ligand_pose/placements.txt \
+  --time-out align_time.txt

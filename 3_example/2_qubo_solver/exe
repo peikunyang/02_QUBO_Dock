@@ -1,0 +1,9 @@
+qubodock-solve ../1_gen_j_matrix/j.txt \
+  --method sa --iters 2000000 --T0 1.0 --Tend 1e-3 \
+  --device cuda \
+  --density 0.5 --seed 0 \
+  --out solution_bits.txt \
+  --points ../1_gen_j_matrix/grid_points.txt \
+  --active-out active_points.txt \
+  --time-out my_solve_time.txt
+

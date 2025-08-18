@@ -1,0 +1,1 @@
+python cen.py ../1nc3_lig_exp.pdb > cen

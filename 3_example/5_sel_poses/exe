@@ -1,0 +1,5 @@
+qubodock-applyrt ../../2_inp/2_rec_lig/shift/1nc3_lig_shi.pdb \
+  ../4_rmsd/placements_rmsd.txt \
+  --pose-index 0 \
+  --device cpu \
+  --out pose_0000.pdb
