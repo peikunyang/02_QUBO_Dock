@@ -116,39 +116,6 @@ If this repository or QUBODock is useful in your research, please cite the follo
 2. **Ligand Pose Generation via QUBO-Based Hotspot Sampling and Geometric Triplet Matching.** arXiv:2507.20304. DOI: 10.48550/arXiv.2507.20304.  
 3. **Comparative Evaluation of PyTorch, JAX, SciPy, and Neal for Solving QUBO Problems at Scale.** arXiv:2507.17770. DOI: 10.48550/arXiv.2507.17770.
 
-**BibTeX**
-```bibtex
-@misc{yang_qubodock_2025,
-  title={QUBODock: A Pip-Installable QUBO Tool for Ligand Pose Generation},
-  author={Pei-Kun Yang},
-  year={2025},
-  eprint={2508.13014},
-  archivePrefix={arXiv},
-  primaryClass={q-bio.BM},
-  doi={10.48550/arXiv.2508.13014}
-}
-
-@misc{yang_hotspot_triplet_2025,
-  title={Ligand Pose Generation via QUBO-Based Hotspot Sampling and Geometric Triplet Matching},
-  author={Pei-Kun Yang},
-  year={2025},
-  eprint={2507.20304},
-  archivePrefix={arXiv},
-  primaryClass={q-bio.BM},
-  doi={10.48550/arXiv.2507.20304}
-}
-
-@misc{yang_qubo_solvers_eval_2025,
-  title={Comparative Evaluation of PyTorch, JAX, SciPy, and Neal for Solving QUBO Problems at Scale},
-  author={Pei-Kun Yang},
-  year={2025},
-  eprint={2507.17770},
-  archivePrefix={arXiv},
-  primaryClass={cs.DC},
-  doi={10.48550/arXiv.2507.17770}
-}
-```
-
 ---
 
 ## License
