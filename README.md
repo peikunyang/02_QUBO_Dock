@@ -54,6 +54,7 @@ qubodock-solve  --help
 
 ### 1) Build the J matrix and grid (`3_example/1_gen_j_matrix/`)
 
+```bash
 qubodock-buildj ../../2_inp/2_rec_lig/1nc3_pro.pdb \
   --center 55.743 39.264 20.669 \
   --radius 7.0 \
@@ -63,6 +64,7 @@ qubodock-buildj ../../2_inp/2_rec_lig/1nc3_pro.pdb \
   --penalty 20.0 --reward -2.0 \
   --out j.txt \
   --points-out grid_points.txt
+```
 
 ### 2) Solve the QUBO (`3_example/2_qubo_solver/`)
 
@@ -80,22 +82,36 @@ qubodock-solve ../1_gen_j_matrix/j.txt \
 ### 3) Enumerate rigid placements (`3_example/3_ligand_pose/`)
 
 ```bash
-qubodock-align 2_inp/2_rec_lig/1nc3_lig_exp.pdb   3_example/2_qubo_solver/active_points.txt   2_inp/2_rec_lig/1nc3_pro.pdb   --pair-tol 0.3 --tri-tol 0.3 --clash 1.6   --device auto   --placements-out 3_example/3_ligand_pose/placements.txt   --save-poses 3_example/3_ligand_pose/poses.pdb
+qubodock-align ../../2_inp/2_rec_lig/shift/1nc3_lig_shi.pdb \
+  ../2_qubo_solver/active_points.txt \
+  ../../2_inp/2_rec_lig/1nc3_pro.pdb \
+  --device cuda \
+  --pair-tol 0.2 \
+  --tri-tol 0.2 \
+  --clash 1.0 \
+  --placements-out ../3_ligand_pose/placements.txt \
+  --time-out align_time.txt
 ```
 
 ### 4) Compute RMSD (`3_example/4_rmsd/`)
 
 ```bash
-qubodock-rmsd 3_example/3_ligand_pose/placements.txt   2_inp/2_rec_lig/1nc3_lig_exp.pdb   2_inp/2_rec_lig/1nc3_lig_exp.pdb   --out 3_example/4_rmsd/placements_rmsd.txt
+qubodock-rmsd ../3_ligand_pose/placements.txt \
+  ../../2_inp/2_rec_lig/shift/1nc3_lig_shi.pdb \
+  ../../2_inp/2_rec_lig/1nc3_lig_exp.pdb \
+  --device cuda \
+  --match-by name \
+  --out placements_rmsd.txt
 ```
-
-> If you used the `shift` helper to move the ligand, replace the second path with the shifted ligand PDB.
 
 ### 5) Materialize a selected pose (`3_example/5_sel_poses/`)
 
 ```bash
-# Example: export the first candidate pose (index 0)
-qubodock-applyrt 2_inp/2_rec_lig/1nc3_lig_exp.pdb   3_example/3_ligand_pose/placements.txt   --pose-index 0   --out 3_example/5_sel_poses/pose_0.pdb
+qubodock-applyrt ../../2_inp/2_rec_lig/shift/1nc3_lig_shi.pdb \
+  ../4_rmsd/placements_rmsd.txt \
+  --pose-index 0 \
+  --device cpu \
+  --out pose_0000.pdb
 ```
 
 ---
