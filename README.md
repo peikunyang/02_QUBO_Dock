@@ -54,20 +54,15 @@ qubodock-solve  --help
 
 ### 1) Build the J matrix and grid (`3_example/1_gen_j_matrix/`)
 
-Option A — compute the ligand center with the helper and feed it into `qubodock-buildj`:
-```bash
-2_inp/2_rec_lig/cen 2_inp/2_rec_lig/1nc3_lig_exp.pdb > center.txt
-CX=$(awk '{print $1}' center.txt); CY=$(awk '{print $2}' center.txt); CZ=$(awk '{print $3}' center.txt)
-
-qubodock-buildj 2_inp/2_rec_lig/1nc3_pro.pdb   --center $CX $CY $CZ --radius 8.0 --spacing 0.4   --exclusion 1.6 --dmin 0.7 --dmax 1.3   --out 3_example/1_gen_j_matrix/j.txt   --points-out 3_example/1_gen_j_matrix/grid_points.txt
-```
-
-Option B — if you already know a pocket center, specify it directly:
-```bash
-qubodock-buildj 2_inp/2_rec_lig/1nc3_pro.pdb   --center 11.0 28.5 17.2 --radius 8.0 --spacing 0.4   --exclusion 1.6 --dmin 0.7 --dmax 1.3   --out 3_example/1_gen_j_matrix/j.txt   --points-out 3_example/1_gen_j_matrix/grid_points.txt
-```
-
-**Notes.** `--spacing` controls the initial grid density. `--exclusion` prunes points too close to protein atoms. The distance window `[d_min, d_max]` shapes the near-uniform selection encouraged by the QUBO.
+qubodock-buildj ../../2_inp/2_rec_lig/1nc3_pro.pdb \
+  --center 55.743 39.264 20.669 \
+  --radius 7.0 \
+  --spacing 0.375 \
+  --exclusion 1.5 \
+  --dmin 0.7 --dmax 1.3 \
+  --penalty 20.0 --reward -2.0 \
+  --out j.txt \
+  --points-out grid_points.txt
 
 ### 2) Solve the QUBO (`3_example/2_qubo_solver/`)
 
