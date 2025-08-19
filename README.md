@@ -67,10 +67,15 @@ qubodock-buildj ../../2_inp/2_rec_lig/1nc3_pro.pdb \
 ### 2) Solve the QUBO (`3_example/2_qubo_solver/`)
 
 ```bash
-qubodock-solve 3_example/1_gen_j_matrix/j.txt   --method sa --iters 200000 --T0 1.0 --Tend 1e-3   --device auto --seed 0   --out 3_example/2_qubo_solver/solution_bits.txt   --points 3_example/1_gen_j_matrix/grid_points.txt   --active-out 3_example/2_qubo_solver/active_points.txt   --time-out 3_example/2_qubo_solver/solve_time.txt
+qubodock-solve ../1_gen_j_matrix/j.txt \
+  --method sa --iters 2000000 --T0 1.0 --Tend 1e-3 \
+  --device cuda \
+  --density 0.5 --seed 0 \
+  --out solution_bits.txt \
+  --points ../1_gen_j_matrix/grid_points.txt \
+  --active-out active_points.txt \
+  --time-out my_solve_time.txt
 ```
-
-Tip: start with a smaller `--iters` to validate parameters, then increase for quality.
 
 ### 3) Enumerate rigid placements (`3_example/3_ligand_pose/`)
 
