@@ -51,6 +51,9 @@ Quick check:
 ```bash
 qubodock-buildj --help
 qubodock-solve  --help
+qubodock-align --help
+qubodock-rmsd  --help
+qubodock-applyrt --help
 ```
 
 ---
