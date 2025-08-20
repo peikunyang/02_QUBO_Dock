@@ -42,7 +42,7 @@ pip install -U qubodock
 
 ```bash
 conda create -n qubodock python=3.10 -y
-conda activate qubodockconda create -n qubodock python=3.10 -y
+conda activate qubodock
 python -m pip install --index-url https://download.pytorch.org/whl/cu121 torch torchvision
 python -m pip install -U --no-deps "qubodock[gpu]"
 ```
